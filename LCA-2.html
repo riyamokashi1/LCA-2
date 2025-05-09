@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travele - Travel Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      height: 90vh;
+      position: relative;
+    }
+
+    .overlay {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This aligns logo and menu vertically */
+  padding: 20px 40px;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  box-shadow: 0 2px 8px rgba(250, 247, 247, 0.1);
+  background: #fff;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fbf5f5;
+}
+}
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #f2545f;
+    }
+
+    .logo {
+  display: flex;
+  align-items: center; /* Ensures logo image and text are aligned */
+}
+
+    .menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color:#f2545f;
+}
+
+.menu a.active-link {
+  color: #f2545f;
+}
+    .btn {
+      background: #f2545f;
+      padding: 10px 20px;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+
+    .hero-content {
+      text-align: center;
+      margin-top: -100px;
+      color: white;
+    }
+
+   
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .search-form {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  max-width: 1100px;
+  margin: -80px auto 60px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+    .search-form input, .search-form button {
+      padding: 12px 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .search-form input {
+      width: 200px;
+    }
+
+    .search-form button {
+      background: #f2545f;
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .top-destinations {
+  text-align: center;
+  padding: 40px 20px;
+  margin: -20px 0 80px -50px
+
+}
+
+
+.destination-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px -150px 40px -100px;
+}
+
+.destination-card {
+  position: relative;
+  width: 250px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.destination-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #00aee0;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* Align items to the left */
+  gap: 5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+.card-content h3 {
+  margin:0;
+  font-size: 16px;
+}
+
+.stars {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.discover-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.discover-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left:80px;
+  margin-top: -120px;
+}
+
+.discover-image {
+  position: relative;
+  flex: 1 1 300px;
+}
+
+.discover-image img {
+  width: 70%;
+  height: auto;
+  position:relative;
+  border-radius: 0px;
+  margin-right:-500px;
+  margin-left: 250px;
+  margin-bottom: -40px;
+  z-index: 2;
+  
+}
+
+.play-button {
+  position: absolute;
+  top: 60%;
+  right: -15%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 50%;
+  font-size: 25px;
+  padding: 15px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+.discover-content {
+  flex: 1 1 800px;
+  background: #009fe3;
+  color: white;
+  padding: 100px;
+  border-radius: 0px;
+  position: relative;
+  margin-left:50px;
+  max-width: 1200px;
+  z-index: 1;
+}
+
+.discover-content h5 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  border-top: 2px solid white;
+  width: max-content;
+}
+
+.discover-content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.discover-content p {
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 20px;
+  margin-bottom: 30px;
+}
+
+.stat h3 {
+  margin: 10px 0 5px;
+  font-size: 20px;
+}
+
+.stat p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.stat i {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.call-box {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 0px;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: max-content;
+}
+
+.call-box i {
+  font-size: 24px;
+  color: #009fe3;
+}
+
+.call-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.call-number {
+  color: #e74c3c;
+  font-size: 18px;
+  font-weight: bold;
+}
+.subtitle {
+  color: #E74C3C;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-right: -50px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 10px 0;
+  text-align: center;
+  color: #222;
+}
+
+.desc {
+  font-size: 14px;
+  color: #777;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.activity-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.activity-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.activity-card img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.activity-card .label {
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.activity-card span {
+  font-size: 12px;
+  color: #888;
+}
+.offers-section {
+  text-align: center;
+  padding-top: 100px; /* You can adjust this value */
+}
+
+.offers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 25px;
+}
+
+.offer-card {
+  width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #FF4D4D;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.offer-info {
+  padding: 15px;
+}
+
+.offer-info .country {
+  color: #E74C3C;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.offer-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0 10px;
+}
+
+.price {
+  font-size: 14px;
+  color: #555;
+}
+
+.price del {
+  color: #aaa;
+  margin-right: 8px;
+}
+    
+    .tour-gallery {
+  display: flex;
+  gap: 40px;
+  padding: 60px 80px;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.section-label {
+  color: #f25c5c;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #12263a;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.photo-grid {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.photo-row {
+  display: flex;
+  gap: 20px;
+}
+
+.photo-row img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+.packages-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-subtitle {
+  text-transform: uppercase;
+  color: #ff5c5c;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  color: #777;
+  font-size: 15px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.package-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  width: calc(33.33% - 15px);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.image-box {
+  position: relative;
+}
+
+.image-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.price-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff5c5c;
+  color: #fff;
+  padding: 8px 12px;
+  font-weight: lighter;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.price-tag span {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.info-list {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: #0077cc;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 10px 0 5px;
+}
+
+.reviews {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #f7b731;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.btn-wrapper {
+  margin-top: 40px;
+}
+
+.view-btn {
+  background: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.view-btn:hover {
+  background: #e64a4a;
+}
+.cta-section {
+  background: #0693e3;
+  color: white;
+  padding: 40px 20px;
+}
+
+.cta-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: left;
+}
+
+.cta-image img {
+  width: 350px;
+  border-radius: 0px;
+}
+
+.cta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.cta-contact {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.cta-contact i {
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.cta-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.cta-button button {
+  background: #ff5e5e;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+footer.footer {
+  background-color: #2b2b2b;
+  color: white;
+  padding: 60px 20px 30px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-box h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  border-left: 2px solid #0693e3;
+  padding-left: 10px;
+}
+
+.footer-box p,
+.footer-box span {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.footer-icons img {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.footer-box input {
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border: none;
+  border-radius: 3px;
+}
+
+.footer-box button {
+  background: #ff5e5e;
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #ccc;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footer-logo {
+  font-weight: lighter;
+  color: white;
+}
+
+.footer-bottom a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between logo and text */
+  margin-top:-25px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  width: 120px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #222;
+}
+
+.card p {
+  font-size: 14px;
+  color: #777;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-overlay:target {
+  display: flex;
+}
+
+.popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #333;
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="overlay">
+      <nav class="navbar">
+        <div class="logo">
+            <img src="travel-agency.png" alt="Logo" class="logo-img">
+            <span>Travele</span>
+          </div>
+          <ul class="menu">
+            <li><a href="#" class="active-link">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="page-2.html">Tours</a></li>
+            <li><a href="page-3.html">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          
+        <a href="#" class="btn">Book Now</a>
+      </nav>
+      <div class="hero-content">
+        <h1>Travelling Around<br/>The World</h1>
+        <p>From bustling cities to serene escapes—find your next destination here.</p>
+        <a href="#" class="btn">Continue Reading</a>
+      </div>
+    </div>
+  </header>
+
+  <form class="search-form">
+    <input type="text" placeholder="Enter Destination*"/>
+    <input type="number" placeholder="Pax Number*"/>
+    <input type="date"/>
+    <input type="date"/>
+    <button type="submit">Inquire Now</button>
+  </form>
+
+  <section class="top-destinations">
+    <h2>Top Notch Destination</h2>
+    <div class="destination-grid">
+  
+      <div class="destination-card">
+        <span class="tag">THAILAND</span>
+        <img src="disneyland.jpg" alt="Disney Land">
+        <div class="card-content">
+          <h3>Disney Land</h3>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+  
+      <div class="destination-card">
+        <span class="tag">NORWAY</span>
+        <img src="bessegenridge.jpeg" alt="Besseggen Ridge">
+        <div class="card-content">
+          <h3>Besseggen Ridge</h3>
+          <div class="stars">★★★★☆</div>
+        </div>
+      </div>
+  
+      <div class="destination-card">
+        <span class="tag">NEW ZEALAND</span>
+        <img src="new zealand.jpg" alt="Oxolotan City">
+        <div class="card-content">
+          <h3>Oxolotan City</h3>
+          <div class="stars">★★★☆☆</div>
+        </div>
+      </div>
+  
+      <div class="destination-card">
+        <span class="tag">SINGAPORE</span>
+        <img src="marina bay.jpg" alt="Marina Bay Sand">
+        <div class="card-content">
+          <h3>Marina Bay Sand</h3>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="discover-section">
+    <div class="discover-container">
+      <div class="discover-image">
+        <img src="coverpage.jpg" alt="Discover Travel Image" />
+        <div class="play-button">&#9658;</div>
+      </div>
+  
+      <div class="discover-content">
+        <h5>CALLBACK FOR MORE</h5>
+        <h2>GO TRAVEL. DISCOVER. REMEMBER US!!</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend.</p>
+  
+        <div class="stats">
+          <div class="stat">
+            <i class="fas fa-users"></i>
+            <h3>500K+</h3>
+            <p>Satisfied Clients</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-award"></i>
+            <h3>250+</h3>
+            <p>Awards Achieve</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-user-friends"></i>
+            <h3>15K+</h3>
+            <p>Active Members</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-map"></i>
+            <h3>10K+</h3>
+            <p>Tour Destination</p>
+          </div>
+        </div>
+  
+        <div class="call-box">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <p>Our 24/7 Emergency Phone Services</p>
+            <span class="call-number">Call: 123-456-7890</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="activity-section">
+    <p class="subtitle">Travel by Activity</p>
+    <h2 class="title">Adventure & Activity</h2>
+    <p class="desc">Discover heart-pounding adventures and unforgettable activities tailored for thrill-seekers and nature lovers. From trekking wild terrains to diving into crystal-clear waters, we offer it all. Whether you're climbing majestic peaks, exploring exotic wildlife, or chasing waves, each moment will leave you breathless and craving more.</p>
+
+    <div class="activity-grid">
+      <a href="#popup-adventure" class="card">
+        <img src="mountain.png" alt="Adventure Icon">
+        <h3>Adventure</h3>
+        <p>15<br> Destination</p>
+      </a>
+      <div class="activity-card">
+        <img src="bag.png" alt="Trekking">
+        <p class="label">Trekking</p>
+        <span>12 Destination</span>
+      </div>
+      <div class="activity-card">
+        <img src="bonfire.png" alt="Camp Fire">
+        <p class="label">Camp Fire</p>
+        <span>7 Destination</span>
+      </div>
+      <div class="activity-card">
+        <img src="directions.png" alt="Off Road">
+        <p class="label">Off Road</p>
+        <span>15 Destination</span>
+      </div>
+      <div class="activity-card">
+        <img src="tent.png" alt="Camping">
+        <p class="label">Camping</p>
+        <span>13 Destination</span>
+      </div>
+      <div class="activity-card">
+        <img src="explore.png" alt="Exploring">
+        <p class="label">Exploring</p>
+        <span>25 Destination</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="offers-section">
+    <p class="subtitle">Travel Offer & Discount</p>
+    <h2 class="title">Special Travel Offer</h2>
+    <p class="desc">Grab up to 40% off on select destinations! Limited slots, unforgettable experiences book your escape now!</p>
+
+    <div class="offers-grid">
+      <div class="offer-card">
+        <div class="image-container">
+          <img src="canada.jpg" alt="Canada Glacier">
+          <div class="badge">20% Off</div>
+        </div>
+        <div class="offer-info">
+          <p class="country">CANADA</p>
+          <h3>Experience the natural beauty of glacier</h3>
+          <p class="price"><del>Rs 1,50,000</del> <strong>Rs 1,20,000</strong></p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="image-container">
+          <img src="newzealand.jpg" alt="NZ Camp">
+          <div class="badge" style="background-color: #F66;">15% Off</div>
+        </div>
+        <div class="offer-info">
+          <p class="country">NEW ZEALAND</p>
+          <h3>Trekking to the mountain camp site</h3>
+          <p class="price"><del>Rs 1,30,000</del> <strong>Rs 1,10,500</strong></p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="image-container">
+          <img src="malaysia.jpg" alt="Malaysia">
+          <div class="badge" style="background-color: #F44;">18% Off</div>
+        </div>
+        <div class="offer-info">
+          <p class="country">MALAYSIA</p>
+          <h3>Sunset view of beautiful lakeside city</h3>
+          <p class="price"><del>Rs 1,80,000</del> <strong>Rs 1,47,600</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="tour-gallery">
+    <div class="text-content">
+      <p class="section-label">OUR TOUR GALLERY</p>
+      <h2>BEST TRAVELER'S <br> SHARED PHOTOS</h2>
+      <p class="description">
+        Our travelers have captured some truly unforgettable moments from around the world. Take a look at their favorite memories and get inspired for your next adventure!
+      </p>
+    </div>
+  
+    <div class="photo-grid">
+      <div class="photo-row">
+        <img src="image1.jpeg" alt="Traveler photo 1">
+        <img src="image2.jpeg" alt="Traveler photo 2">
+      </div>
+      <div class="photo-row">
+        <img src="image3.jpg" alt="Traveler photo 3">
+        <img src="image4.jpg" alt="Traveler photo 4">
+      </div>
+    </div>
+  </section>
+  <section class="packages-section">
+    <h5 class="section-subtitle">Explore Great Places</h5>
+    <h2 class="section-title">Popular Packages</h2>
+    <p class="section-desc">Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
+  
+    <div class="cards-container">
+      <!-- Card 1 -->
+      <div class="package-card">
+        <div class="image-box">
+          <img src="image5.jpg" alt="Lakeside">
+          <span class="price-tag red"> Rs 1,90,000 / per person </span>
+        </div>
+        <div class="card-body">
+          <ul class="info-list">
+            <li>7D | 6N</li>
+            <li>People: 5</li>
+            <li>Malaysia</li>
+          </ul>
+          <h4 class="card-title">Sunset view of beautiful lakeside resident</h4>
+          <p class="reviews">(25 reviews) <span class="stars">★★★★★</span></p>
+          <p class="card-desc">As the sun sets behind the hills, the lakeside residence glows with warm golden hues, creating a picture-perfect moment. The gentle ripples in the water reflect the sky’s vibrant colors, offering a peaceful retreat into nature’s beauty. It’s the kind of place that makes you want to pause and simply breathe.</p>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="package-card">
+        <div class="image-box">
+          <img src="image6.jpg" alt="Island">
+          <span class="price-tag red"> Rs 1,23,000 / per person </span>
+        </div>
+        <div class="card-body">
+          <ul class="info-list">
+            <li>5D | 4N</li>
+            <li>People: 8</li>
+            <li>Canada</li>
+          </ul>
+          <h4 class="card-title">Experience the natural beauty of island</h4>
+          <p class="reviews">(17 reviews) <span class="stars">★★★★★</span></p>
+          <p class="card-desc">Discover the untouched charm of the island, where turquoise waters meet lush greenery in perfect harmony. Whether you're exploring hidden trails or relaxing by the shore, every moment here feels like a step closer to paradise. Let nature’s serenity refresh your soul.</p>
+        </div>
+      </div>
+  
+      <!-- Card 3 -->
+      <div class="package-card">
+        <div class="image-box">
+          <img src="image7.jpg" alt="Portugal">
+          <span class="price-tag red">Rs 2,00,000 / per person </span>
+        </div>
+        <div class="card-body">
+          <ul class="info-list">
+            <li>6D | 5N</li>
+            <li>People: 6</li>
+            <li>Portugal</li>
+          </ul>
+          <h4 class="card-title">Vacation to the water city of Portugal</h4>
+          <p class="reviews">(22 reviews) <span class="stars">★★★★★</span></p>
+          <p class="card-desc">Embark on a dreamy escape to the water city of Portugal, where charming canals and vibrant culture await at every turn. Cruise through scenic waterways, explore historic streets, and indulge in local delights. It’s the perfect blend of relaxation and adventure.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="btn-wrapper">
+      <button class="view-btn">View All Packages</button>
+    </div>
+  </section>
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-image">
+        <img src="image8.jpg" alt="Travel girls" />
+      </div>
+      <div class="cta-info">
+        <div class="cta-contact">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <p>support@gmail.com</p>
+            <p>info@domain.com</p>
+            <p>name@company.com</p>
+          </div>
+        </div>
+        <div class="cta-contact">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <p>+132 (599) 254 669</p>
+            <p>+123 (669) 255 587</p>
+            <p>+01 (977) 2599 12</p>
+          </div>
+        </div>
+        <div class="cta-contact">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <p>71-A, Dadar</p>
+            <p>Shell Colony</p>
+            <p>Godrej Central</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-button">
+      <h3>LET'S JOIN US FOR MORE UPDATE !!</h3>
+      <button>LEARN MORE</button>
+    </div>
+  </section>
+
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h4>ABOUT TRAVELE</h4>
+        <p>Travele is your all-in-one travel companion, designed to turn your dream journeys into reality. </p>
+        <div class="footer-icons">
+        </div>
+      </div>
+      <div class="footer-box">
+        <h4>CONTACT INFORMATION</h4>
+        <p><i class="fas fa-phone"></i> +01 (977) 2599 12</p>
+        <p><i class="fas fa-envelope"></i> company@domain.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 71-A, Dadar</p>
+      </div>
+      <div class="footer-box">
+        <h4>RECENT POSTS</h4>
+        <p>Life is a beautiful journey not a destination</p>
+        <span>August 17, 2021 | No Comments</span><br><br>
+        <p>Take only memories, leave only footprints</p>
+        <span>August 17, 2021 | No Comments</span>
+      </div>
+      <div class="footer-box">
+        <h4>SUBSCRIBE US</h4>
+        <p>Stay in the loop with the latest travel guides, exclusive offers, and destination highlights. </p>
+        <input type="email" placeholder="Your Email..." />
+        <button>SUBSCRIBE NOW</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Terms & Condition</a> | 
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-logo">Copyright © 2021 Travele. All rights reserved.</div>
+    </div>
+    <div class="footer-center">
+      <img src="travel-agency.png" alt="Travele Logo" style="height: 30px;" />
+      <span style="color: white; font-weight: bold;">Travele</span>
+    </div>
+  </footer>
+
+  
+
+  <!-- Popup Overlay for Adventure -->
+<div id="popup-adventure" class="popup-overlay">
+  <div class="popup-box">
+    <a href="#!" class="close-btn">&times;</a>
+    <h2>Adventure Details</h2>
+    <p>Experience thrilling adventures including mountain climbing, river rafting, and more in our top 15 destinations.</p>
+  </div>
+</div>
+</body>
+</html>

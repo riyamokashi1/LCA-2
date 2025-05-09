@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Travele</title>
+  <link rel="stylesheet" href="blog.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <style>
+     body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f0f0f;
+}
+
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: red;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px; /* adjust height as needed */
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* overlay for readability */
+  z-index: 1;
+}
+
+
+.blogs {
+  padding: 60px 80px;
+  background-color: #fff;
+}
+
+.blogs h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.blog-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card h3 {
+  font-size: 20px;
+  padding: 15px;
+}
+
+.blog-card p {
+  font-size: 14px;
+  padding: 0 15px 15px;
+  color: #666;
+}
+
+.blog-card a {
+  display: block;
+  padding: 0 15px 20px;
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: 600;
+}
+.blog-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(218, 12, 12, 0.1);
+}
+
+footer.footer {
+  background-color: #2b2b2b;
+  color: white;
+  padding: 60px 20px 30px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-box h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  border-left: 2px solid #0693e3;
+  padding-left: 10px;
+}
+
+.footer-box p,
+.footer-box span {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.footer-icons img {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.footer-box input {
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border: none;
+  border-radius: 3px;
+}
+
+.footer-box button {
+  background: #ff5e5e;
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #ccc;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footer-logo {
+  font-weight: lighter;
+  color: white;
+}
+
+.footer-bottom a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between logo and text */
+  margin-top:-25px;
+}
+
+  </style>
+
+  <header>
+    <div class="logo">
+        <img src="travel.png" alt="Logo">
+        <span>Travele</span>
+      </div>
+    
+    <nav>
+      <ul>
+        <li><a href="LCA-2.html">Home</a></li>
+        <li><a href="index.html">About</a></li>
+        <li><a href="page-2.html">Tours</a></li> 
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="coverpage2.jpg" alt="Hero Image">
+    <div class="hero-text">
+      <h1>Explore Travel Stories & Tips</h1>
+      <p>Discover beautiful destinations and travel inspiration from our blog</p>
+    </div>
+  </section>
+  
+
+  <section class="blogs">
+    <h2>Latest Blog Posts</h2>
+
+    <div class="blog-container">
+      <div class="blog-card">
+        <img src="beach.jpg" alt="Beach Escape">
+        <h3>Top 5 Beaches to Visit This Summer</h3>
+        <p>From golden sands to turquoise waters, here are our top picks for beach lovers...</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="mountain-adventure.webp" alt="Mountain Adventure">
+        <h3>Adventuring Through the Alps</h3>
+        <p>A journey through majestic mountains and snowy peaks with unforgettable views...</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="city.jpg" alt="City Travel">
+        <h3>Weekend Escapes to Hidden Cities</h3>
+        <p>Looking for quick getaways? These cities offer charm and culture without the crowds...</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-box">
+      <h4>ABOUT TRAVELE</h4>
+      <p>Travele is your all-in-one travel companion, designed to turn your dream journeys into reality. </p>
+      <div class="footer-icons">
+      </div>
+    </div>
+    <div class="footer-box">
+      <h4>CONTACT INFORMATION</h4>
+      <p><i class="fas fa-phone"></i> +01 (977) 2599 12</p>
+      <p><i class="fas fa-envelope"></i> company@domain.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> 71-A, Dadar</p>
+    </div>
+    <div class="footer-box">
+      <h4>RECENT POSTS</h4>
+      <p>Life is a beautiful journey not a destination</p>
+      <span>August 17, 2021 | No Comments</span><br><br>
+      <p>Take only memories, leave only footprints</p>
+      <span>August 17, 2021 | No Comments</span>
+    </div>
+    <div class="footer-box">
+      <h4>SUBSCRIBE US</h4>
+      <p>Stay in the loop with the latest travel guides, exclusive offers, and destination highlights. </p>
+      <input type="email" placeholder="Your Email..." />
+      <button>SUBSCRIBE NOW</button>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms & Condition</a> | 
+      <a href="#">FAQ</a>
+    </div>
+    <div class="footer-logo">Copyright © 2021 Travele. All rights reserved.</div>
+  </div>
+  <div class="footer-center">
+    <img src="travel-agency.png" alt="Travele Logo" style="height: 30px;" />
+    <span style="color: white; font-weight: bold;">Travele</span>
+  </div>
+</footer>
+<script>
+  // Custom function to highlight blog card
+  function highlightBlog(card) {
+    card.classList.add('highlighted-blog');
+  }
+  
+  // DOM traversal: querySelectorAll and getElementsByTagName
+  const blogCards = document.querySelectorAll('.blog-card');
+  const blogHeadings = document.getElementsByTagName('h3');
+  
+  // Add a class dynamically for styling (mouseover/mouseout)
+  blogCards.forEach((card) => {
+    card.addEventListener('mouseover', () => {
+      highlightBlog(card); // custom function
+    });
+  
+    card.addEventListener('mouseout', () => {
+      card.classList.remove('highlighted-blog');
+    });
+  
+    // Click event to dynamically add confirmation message
+    card.addEventListener('click', () => {
+      const confirmation = document.createElement('p');
+      confirmation.textContent = "✓ You clicked this blog card!";
+      confirmation.style.color = 'green';
+      confirmation.classList.add('confirmation-msg');
+  
+      // DOM tree navigation: use .firstElementChild and .append
+      const contentArea = card.firstElementChild; 
+      card.append(confirmation);
+    });
+  });
+  
+  // Key-based event: listen for 'b' key to alert
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'b' || e.key === 'B') {
+      alert('You pressed "B"! Go back to blogs!');
+    }
+  });
+  
+  // Inject style for the new classes
+  const style = document.createElement('style');
+  style.textContent = `
+    .highlighted-blog {
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+    .confirmation-msg {
+      font-size: 14px;
+      margin: 10px 15px;
+    }
+  `;
+  document.head.appendChild(style);
+  </script>
+  
+ 
+</body>
+</html>

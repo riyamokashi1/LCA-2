@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <img src="travel-agency.png" alt="Travele Logo" />
+        <span>Travele</span>
+      </div>
+  
+      <nav class="nav-links">
+        <a href="LCA-2.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tours.html"class="active">Tours</a>
+        <a href="page-3.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+  
+      <!-- Right empty div (if needed for symmetry) -->
+      <div class="empty-right-space"></div>
+    </div>
+  </header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travele - Tours</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="tours.css" />
+</head>
+<body>
+<style>
+  html, body {
+  overflow-x: hidden;
+}
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2; /* Must be above .overlay and images */
+  
+}
+
+.hero {
+  position: relative;
+  height: 350px; /* Adjust as needed */
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+.hero-bg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-bg img {
+  flex: 1;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%);
+  display: block;
+  z-index: 1;
+}
+
+.hero-bg .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Optional: darkens the image */
+}
+
+.tour-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.card .price {
+  color: red;
+  font-weight: bold;
+}
+
+.stars {
+  color: goldenrod;
+}
+
+.card button {
+  margin-top: 10px;
+  background: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+.site-header {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.site-header {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  margin-left:40px;
+
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex: 2;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+  
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ff4f5a;
+}
+
+.empty-right-space {
+  flex: 1; /* Used to push nav to center */
+}
+
+
+
+footer.footer {
+  background-color: #2b2b2b;
+  color: white;
+  padding: 60px 20px 30px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-box h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  border-left: 2px solid #0693e3;
+  padding-left: 10px;
+}
+
+.footer-box p,
+.footer-box span {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.footer-icons img {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.footer-box input {
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border: none;
+  border-radius: 3px;
+}
+
+.footer-box button {
+  background: #ff5e5e;
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #ccc;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footer-logo {
+  font-weight: lighter;
+  color: white;
+}
+
+.footer-bottom a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between logo and text */
+  margin-top:-25px;
+}
+
+</style>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="image11.avif" alt="Cover 1">
+      <img src="image10.jpg" alt="Cover 2">
+      <img src="image12.jpg" alt="Cover 3">
+    </div>
+    <div class="hero-content">
+      <h1>Explore Our Popular Tours</h1>
+      <p>Discover the best destinations with us</p>
+    </div>
+  </section>
+  
+
+  <!-- Tour Cards Section -->
+  <section class="tours-container">
+
+    <div class="tour-cards">
+      <!-- Row 1 -->
+      <div class="card">
+        <img src="canada2.jpg" alt="Canada Glacier">
+        <h3>Experience the natural beauty of glacier</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Canada</p>
+        <p><i class="fas fa-clock"></i> 5 Days | 4 Nights</p>
+        <p>Price: <del>Rs 1,50,000</del> <span class="price">Rs 1,20,000</span></p>
+        <p>Witness majestic glaciers, lakes, and wildlife on this guided tour.</p>
+        <p><span class="stars">★★★★☆ (4.5)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <div class="card">
+        <img src="newzealand2.jpg" alt="New Zealand">
+        <h3>Trekking to the mountain camp site</h3>
+        <p><i class="fas fa-map-marker-alt"></i> New Zealand</p>
+        <p><i class="fas fa-clock"></i> 7 Days | 6 Nights</p>
+        <p>Price: <del>Rs 1,30,000</del> <span class="price">Rs 1,10,000</span></p>
+        <p>Hike the stunning peaks of New Zealand with expert guidance.</p>
+        <p><span class="stars">★★★★★ (5.0)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <div class="card">
+        <img src="malaysia2.jpg" alt="Malaysia">
+        <h3>Sunset view of beautiful lakeside city</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Malaysia</p>
+        <p><i class="fas fa-clock"></i> 4 Days | 3 Nights</p>
+        <p>Price: <del>Rs 1,80,000</del> <span class="price">Rs 1,47,000</span></p>
+        <p>Relax in tranquil lakeside cities and enjoy exclusive sunset tours.</p>
+        <p><span class="stars">★★★★☆ (4.3)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <!-- Row 2 -->
+      <div class="card">
+        <img src="Switzerland2.webp" alt="Switzerland">
+        <h3>Snowy Adventure in the Alps</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Switzerland</p>
+        <p><i class="fas fa-clock"></i> 6 Days | 5 Nights</p>
+        <p>Price: <del>Rs 2,00,000</del> <span class="price">Rs 1,70,000</span></p>
+        <p>Experience snowy peaks, skiing, and cozy mountain lodges.</p>
+        <p><span class="stars">★★★★☆ (4.6)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <div class="card">
+        <img src="tokyo.jpg" alt="Japan">
+        <h3>Explore the Culture of Japan</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Japan</p>
+        <p><i class="fas fa-clock"></i> 5 Days | 4 Nights</p>
+        <p>Price: <del>Rs 1,85,000</del> <span class="price">Rs 1,58,000</span></p>
+        <p>Visit Tokyo, Kyoto, and enjoy traditional temples and food.</p>
+        <p><span class="stars">★★★★☆ (4.8)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <div class="card">
+        <img src="thailand.avif" alt="Thailand Beach">
+        <h3>Tropical Beach Escape</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Thailand</p>
+        <p><i class="fas fa-clock"></i> 6 Days | 5 Nights</p>
+        <p>Price: <del>Rs 1,40,000</del> <span class="price">Rs 1,15,000</span></p>
+        <p>Enjoy beach resorts, parties, and island hopping tours.</p>
+        <p><span class="stars">★★★★☆ (4.4)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <!-- Row 3 -->
+      <div class="card">
+        <img src="egpyt.jpg" alt="Egypt Pyramids">
+        <h3>Mysteries of the Egyptian Pyramids</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Egypt</p>
+        <p><i class="fas fa-clock"></i> 6 Days | 5 Nights</p>
+        <p>Price: <del>Rs 1,60,000</del> <span class="price">Rs 1,34,000</span></p>
+        <p>Uncover ancient secrets and walk through the Valley of Kings.</p>
+        <p><span class="stars">★★★☆☆ (4.7)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <div class="card">
+        <img src="paris.jpg" alt="Paris Eiffel">
+        <h3>Romantic Getaway in Paris</h3>
+        <p><i class="fas fa-map-marker-alt"></i> France</p>
+        <p><i class="fas fa-clock"></i> 5 Days | 4 Nights</p>
+        <p>Price: <del>Rs 1,75,000</del> <span class="price">Rs 1,50,000</span></p>
+        <p>Explore iconic landmarks and enjoy world-class cuisine.</p>
+        <p><span class="stars">★★★★★(4.9)</span></p>
+        <button>Book Now</button>
+      </div>
+    
+      <div class="card">
+        <img src="bali.jpg" alt="Bali Island">
+        <h3>Island Retreat in Bali</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Indonesia</p>
+        <p><i class="fas fa-clock"></i> 7 Days | 6 Nights</p>
+        <p>Price: <del>Rs 1,50,000</del> <span class="price">Rs 1,25,000</span></p>
+        <p>Rejuvenate with nature, beaches, and temples in Bali.</p>
+        <p><span class="stars">★★★★☆ (4.6)</span></p>
+        <button>Book Now</button>
+      </div>
+    </div> 
+  </section>
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h4>ABOUT TRAVELE</h4>
+        <p>Travele is your all-in-one travel companion, designed to turn your dream journeys into reality. </p>
+        <div class="footer-icons">
+        </div>
+      </div>
+      <div class="footer-box">
+        <h4>CONTACT INFORMATION</h4>
+        <p><i class="fas fa-phone"></i> +01 (977) 2599 12</p>
+        <p><i class="fas fa-envelope"></i> company@domain.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 71-A, Dadar</p>
+      </div>
+      <div class="footer-box">
+        <h4>RECENT POSTS</h4>
+        <p>Life is a beautiful journey not a destination</p>
+        <span>August 17, 2021 | No Comments</span><br><br>
+        <p>Take only memories, leave only footprints</p>
+        <span>August 17, 2021 | No Comments</span>
+      </div>
+      <div class="footer-box">
+        <h4>SUBSCRIBE US</h4>
+        <p>Stay in the loop with the latest travel guides, exclusive offers, and destination highlights. </p>
+        <input type="email" placeholder="Your Email..." />
+        <button>SUBSCRIBE NOW</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Terms & Condition</a> | 
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-logo">Copyright © 2021 Travele. All rights reserved.</div>
+    </div>
+    <div class="footer-center">
+      <img src="travel-agency.png" alt="Travele Logo" style="height: 30px;" />
+      <span style="color: white; font-weight: bold;">Travele</span>
+    </div>
+  </footer>
+
+
+</body>
+<script>
+  // Custom callback function
+  function highlightCard(card) {
+    card.classList.add('highlighted');
+  }
+  
+  // DOM Traversal: getElementById and querySelectorAll
+  const tourSection = document.getElementById('tours-section') || document.querySelector('.tours-container');
+  const allCards = document.querySelectorAll('.card');
+  
+  // Add styles using class list on mouseover and mouseout
+  allCards.forEach((card) => {
+    card.addEventListener('mouseover', () => {
+      highlightCard(card); // Custom callback
+    });
+  
+    card.addEventListener('mouseout', () => {
+      card.classList.remove('highlighted');
+    });
+  
+    // Click event to add new element dynamically
+    card.querySelector('button').addEventListener('click', () => {
+      const newPara = document.createElement('p');
+      newPara.textContent = "✓ Successfully Booked!";
+      newPara.style.color = 'green';
+      newPara.classList.add('booking-confirmation');
+  
+      // DOM Tree Navigation: using parentElement to insert
+      const cardBody = card.children[card.children.length - 1].parentElement;
+      cardBody.append(newPara);
+    });
+  });
+  
+  // Key-based event
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "b" || e.key === "B") {
+      alert("You pressed B! Browse more tours!");
+    }
+  });
+  
+  // Add style class in CSS for highlight
+  const style = document.createElement('style');
+  style.textContent = `
+    .highlighted {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+  `;
+  document.head.appendChild(style);
+  </script>
+  
+</html>
